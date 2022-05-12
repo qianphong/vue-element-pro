@@ -1,4 +1,3 @@
-import { resolve } from 'path'
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -25,10 +24,6 @@ const customImports = {
   ],
 }
 
-function toAbsolute(path: string): string {
-  return resolve(__dirname, 'node_modules', path)
-}
-
 function ElementProResolver(name: string) {
   if (name.startsWith('Pro')) {
     const fileName = name
@@ -38,7 +33,7 @@ function ElementProResolver(name: string) {
     return {
       name,
       from: 'element-pro-components',
-      sideEffects: toAbsolute(`element-pro-components/lib/styles/${fileName}`),
+      sideEffects: `element-pro-components/lib/styles/${fileName}`,
     }
   }
 }

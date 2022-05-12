@@ -1,9 +1,7 @@
 <template>
   <div class="login">
     <el-card class="login-content">
-      <h1 class="title">
-        管理后台
-      </h1>
+      <h1 class="title">管理后台</h1>
       <pro-form
         ref="login"
         v-model="form"

@@ -1,28 +1,23 @@
 <template>
-  <pro-layout
-    transition="el-fade-in"
-    keep-alive
-    :include="/^Keep/"
-  >
+  <pro-layout transition="el-fade-in" keep-alive :include="/^Keep/">
     <template #header-left>
       <pro-breadcrumb />
+    </template>
+    <template #logo="{ collapse }">
+      <span style="line-height: 54px">
+        {{ collapse ? 'L' : 'logo' }}
+      </span>
     </template>
     <template #header-right>
       <el-dropdown>
         <span class="el-dropdown-link">
-          <el-image
-            v-if="state.avatar"
-            :src="state.avatar"
-            class="avatar"
-          />
+          <el-image v-if="state.avatar" :src="state.avatar" class="avatar" />
           {{ state.name }}
           <icon-arrow-down class="el-icon-arrow-down el-icon--right" />
         </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item @click="loginOut">
-              退出
-            </el-dropdown-item>
+            <el-dropdown-item @click="loginOut"> 退出 </el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>

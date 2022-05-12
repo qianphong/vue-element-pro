@@ -1,12 +1,6 @@
 <template>
-  <pro-card
-    ghost
-    direction="column"
-  >
-    <pro-card
-      :gutter="20"
-      ghost
-    >
+  <pro-card ghost direction="column">
+    <pro-card :gutter="20" ghost>
       <pro-card
         v-for="(item, index) in info"
         :key="index"
@@ -16,50 +10,19 @@
         shadow="never"
         class="space-y"
       >
-        <dashboard-card
-          :title="item.title"
-          :info="item.info"
-        />
+        <dashboard-card :title="item.title" :info="item.info" />
       </pro-card>
     </pro-card>
-    <pro-card
-      split
-      shadow="never"
-      class="space-y"
-    >
-      <pro-card
-        :xs="24"
-        :sm="12"
-        :md="10"
-        shadow="never"
-      >
+    <pro-card split shadow="never" class="space-y">
+      <pro-card :xs="24" :sm="12" :md="10" shadow="never">
         <el-calendar v-model="days" />
       </pro-card>
-      <pro-card
-        :header="title"
-        shadow="never"
-      >
+      <pro-card :header="title" shadow="never">
         <div class="circle-list">
-          <el-progress
-            :percentage="25"
-            type="circle"
-            class="space-y"
-          />
-          <el-progress
-            :percentage="50"
-            type="circle"
-            class="space-y"
-          />
-          <el-progress
-            :percentage="60"
-            type="circle"
-            class="space-y"
-          />
-          <el-progress
-            :percentage="14"
-            type="circle"
-            class="space-y"
-          />
+          <el-progress :percentage="25" type="circle" class="space-y" />
+          <el-progress :percentage="50" type="circle" class="space-y" />
+          <el-progress :percentage="60" type="circle" class="space-y" />
+          <el-progress :percentage="14" type="circle" class="space-y" />
         </div>
         <div>
           <el-progress
@@ -114,7 +77,7 @@ const info = [
 }
 .space-y {
   margin-top: 16px;
-  magin-bottom: 16px;
+  margin-bottom: 16px;
 }
 .circle-list {
   display: flex;
