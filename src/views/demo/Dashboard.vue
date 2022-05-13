@@ -19,33 +19,33 @@
       </ProCard>
       <ProCard :header="title" shadow="never">
         <div class="circle-list">
-          <el-progress :percentage="25" type="circle" class="space-y" />
-          <el-progress :percentage="50" type="circle" class="space-y" />
-          <el-progress :percentage="60" type="circle" class="space-y" />
-          <el-progress :percentage="14" type="circle" class="space-y" />
+          <ElProgress :percentage="25" type="circle" class="space-y" />
+          <ElProgress :percentage="50" type="circle" class="space-y" />
+          <ElProgress :percentage="60" type="circle" class="space-y" />
+          <ElProgress :percentage="14" type="circle" class="space-y" />
         </div>
         <div>
-          <el-progress
+          <ElProgress
             :text-inside="true"
             :stroke-width="26"
             :percentage="70"
             class="space-y"
           />
-          <el-progress
+          <ElProgress
             :text-inside="true"
             :stroke-width="26"
             :percentage="100"
             status="success"
             class="space-y"
           />
-          <el-progress
+          <ElProgress
             :text-inside="true"
             :stroke-width="26"
             :percentage="80"
             status="warning"
             class="space-y"
           />
-          <el-progress
+          <ElProgress
             :text-inside="true"
             :stroke-width="26"
             :percentage="50"
