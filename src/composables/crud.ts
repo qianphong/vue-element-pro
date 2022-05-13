@@ -6,7 +6,7 @@ import {
   RequestPageKey,
   RequestLimitkey,
   RequestLimit,
-} from '../utils/index'
+} from '@/utils/index'
 import type { Ref } from 'vue'
 import type {
   ICrudSubmit,

@@ -5,7 +5,7 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    DashboardCard: typeof import('./src/components/DashboardCard.vue')['default']
+    DashboardCard: typeof import('./../src/components/DashboardCard.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCalendar: typeof import('element-plus/es')['ElCalendar']
     ElCard: typeof import('element-plus/es')['ElCard']
@@ -20,14 +20,12 @@ declare module '@vue/runtime-core' {
     Loading: typeof import('element-plus/es')['ElLoadingDirective']
     ProBreadcrumb: typeof import('element-pro-components')['ProBreadcrumb']
     ProCard: typeof import('element-pro-components')['ProCard']
-    ProColumnSetting: typeof import('element-pro-components')['ProColumnSetting']
     ProCrud: typeof import('element-pro-components')['ProCrud']
-    ProDescriptions: typeof import('element-pro-components')['ProDescriptions']
     ProForm: typeof import('element-pro-components')['ProForm']
     ProLayout: typeof import('element-pro-components')['ProLayout']
     ProTable: typeof import('element-pro-components')['ProTable']
     ProTabs: typeof import('element-pro-components')['ProTabs']
-    RichEditor: typeof import('./src/components/RichEditor.vue')['default']
+    RichEditor: typeof import('./../src/components/RichEditor.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

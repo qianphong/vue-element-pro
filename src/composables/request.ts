@@ -1,13 +1,18 @@
-import { stringifyQuery, LocationQueryRaw } from 'vue-router'
-import { createFetch, isObject, MaybeRef, UseFetchReturn } from '@vueuse/core'
+import { stringifyQuery, type LocationQueryRaw } from 'vue-router'
+import {
+  createFetch,
+  isObject,
+  type MaybeRef,
+  type UseFetchReturn,
+} from '@vueuse/core'
 import { useGlobalState } from './index'
 import {
   RequestAuthKey,
   RequestWithCookie,
   RequestTimeout,
   appMessage,
-} from '../utils/index'
-import router from '../router/index'
+} from '@/utils/index'
+import router from '@/router/index'
 
 const baseUrl = import.meta.env.VITE_BASE_URL
 const useRequest = createFetch({

@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import { useGlobalState, useForm } from '../composables/index'
-import { Api } from '../utils/index'
+import { useGlobalState, useForm } from '@/composables/index'
+import { Api } from '@/utils/index'
 import type { IFormExpose } from 'element-pro-components'
 import type { LoginForm, ResLogin } from '../types/index'
 

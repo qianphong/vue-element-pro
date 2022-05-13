@@ -1,5 +1,12 @@
 {
   "globals": {
+    "$": true,
+    "$$": true,
+    "$computed": true,
+    "$customRef": true,
+    "$ref": true,
+    "$shallowRef": true,
+    "$toRef": true,
     "asyncComputed": true,
     "autoResetRef": true,
     "computed": true,
@@ -47,6 +54,8 @@
     "getCurrentScope": true,
     "h": true,
     "IconHouse": true,
+    "IconLock": true,
+    "IconUser": true,
     "ignorableWatch": true,
     "inject": true,
     "isDefined": true,

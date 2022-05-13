@@ -1,6 +1,6 @@
 <template>
-  <pro-card shadow="never">
-    <pro-table
+  <ProCard shadow="never">
+    <ProTable
       v-model:current-page="page"
       v-model:page-size="limit"
       v-loading="isFetching"
@@ -14,38 +14,35 @@
       @load="loadList"
     >
       <template #avatar="{ row }">
-        <el-image
+        <ElImage
           style="width: 60px; height: 60px"
           :src="row.avatar"
           fit="scale-down"
         />
       </template>
       <template #status="{ row, size }">
-        <el-tag
-          :type="row.status ? 'success' : 'danger'"
-          :size="size"
-        >
+        <ElTag :type="row.status ? 'success' : 'danger'" :size="size">
           {{ row.status ? '启用' : '禁用' }}
-        </el-tag>
+        </ElTag>
       </template>
       <template #menu="{ row, size }">
-        <el-button
+        <ElButton
           :loading="isLoading"
           :size="size"
-          type="text"
+          text
           @click="handleStatus(row)"
         >
           {{ row.status ? '禁用' : '启用' }}
-        </el-button>
+        </ElButton>
       </template>
-    </pro-table>
-  </pro-card>
+    </ProTable>
+  </ProCard>
 </template>
 
 <script setup lang="ts">
-import { useList, useForm } from '../../composables/index'
-import { Api, appMessage } from '../../utils/index'
-import type { UserItem } from '../../types/index'
+import { useList, useForm } from '@/composables/index'
+import { Api, appMessage } from '@/utils/index'
+import type { UserItem } from '@/types/index'
 
 const { isFetching, page, limit, total, list, loadList } = useList({
   url: Api.user,

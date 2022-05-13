@@ -1,19 +1,19 @@
 <template>
-  <pro-card shadow="never">
-    <pro-form
+  <ProCard shadow="never">
+    <ProForm
       v-model="form"
       :columns="columns"
       label-width="100px"
       @submit="submit"
     />
-  </pro-card>
+  </ProCard>
 </template>
 
 <script setup lang="ts">
-import { useForm } from '../../composables/index'
-import { Api } from '../../utils/index'
+import { useForm } from '@/composables/index'
+import { Api } from '@/utils/index'
 import RichEditorVue from '../../components/RichEditor.vue'
-import type { ArticleForm } from '../../types/article'
+import type { ArticleForm } from '@/types/article'
 
 const { form, submit } = useForm<ArticleForm>({ url: Api.article })
 const columns = defineFormColumns<ArticleForm>([

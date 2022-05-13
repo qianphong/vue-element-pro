@@ -1,14 +1,14 @@
 <template>
-  <pro-card shadow="never">
+  <ProCard shadow="never">
     <p>当页面的名字以 `Keep` 开头时会自动缓存当前页面</p>
     <p>尝试在下面输入框中输入内容，然后切换其它页面再切换回来，数据将不变</p>
-    <pro-form
+    <ProForm
       v-model="form"
       :columns="columns"
       label-width="100px"
       @submit="submit"
     />
-  </pro-card>
+  </ProCard>
 </template>
 
 <script lang="ts">
@@ -17,9 +17,9 @@ export default { name: 'KeepAlive' }
 </script>
 
 <script setup lang="ts">
-import { useForm } from '../../composables/index'
-import { Api } from '../../utils/index'
-import type { ArticleForm } from '../../types/article'
+import { useForm } from '@/composables/index'
+import { Api } from '@/utils/index'
+import type { ArticleForm } from '@/types/article'
 
 const { form, submit } = useForm<ArticleForm>({ url: Api.form })
 const columns = defineFormColumns<ArticleForm>([

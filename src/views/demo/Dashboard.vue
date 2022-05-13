@@ -1,7 +1,7 @@
 <template>
-  <pro-card ghost direction="column">
-    <pro-card :gutter="20" ghost>
-      <pro-card
+  <ProCard ghost direction="column">
+    <ProCard :gutter="20" ghost>
+      <ProCard
         v-for="(item, index) in info"
         :key="index"
         :xs="12"
@@ -10,14 +10,14 @@
         shadow="never"
         class="space-y"
       >
-        <dashboard-card :title="item.title" :info="item.info" />
-      </pro-card>
-    </pro-card>
-    <pro-card split shadow="never" class="space-y">
-      <pro-card :xs="24" :sm="12" :md="10" shadow="never">
+        <DashboardCard :title="item.title" :info="item.info" />
+      </ProCard>
+    </ProCard>
+    <ProCard split shadow="never" class="space-y">
+      <ProCard :xs="24" :sm="12" :md="10" shadow="never">
         <el-calendar v-model="days" />
-      </pro-card>
-      <pro-card :header="title" shadow="never">
+      </ProCard>
+      <ProCard :header="title" shadow="never">
         <div class="circle-list">
           <el-progress :percentage="25" type="circle" class="space-y" />
           <el-progress :percentage="50" type="circle" class="space-y" />
@@ -53,9 +53,9 @@
             class="space-y"
           />
         </div>
-      </pro-card>
-    </pro-card>
-  </pro-card>
+      </ProCard>
+    </ProCard>
+  </ProCard>
 </template>
 
 <script setup lang="ts">
@@ -63,6 +63,7 @@ const days = ref(new Date())
 const title = computed(() => {
   return `${days.value.toLocaleDateString()} 数据`
 })
+
 const info = [
   { title: '项目1', info: 14758 },
   { title: '项目2', info: 4387 },

@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'url'
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -53,6 +54,40 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd())
 
   return {
+    plugins: [
+      vue(),
+      AutoImport({
+        imports: [
+          'vue',
+          'vue-router',
+          '@vueuse/core',
+          'vue/macros',
+          customImports,
+        ],
+        resolvers: [
+          ElementPlusResolver(),
+          ElementProResolver,
+          ElementIconResolver,
+        ],
+        dts: 'types/auto-imports.d.ts',
+        eslintrc: { enabled: true },
+      }),
+      Components({
+        resolvers: [
+          ElementPlusResolver(),
+          ElementProResolver,
+          ElementIconResolver,
+        ],
+        dts: 'types/components.d.ts',
+      }),
+      Unocss(),
+    ],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('src', import.meta.url)),
+        '#': fileURLToPath(new URL('types', import.meta.url)),
+      },
+    },
     server: {
       host: '0.0.0.0',
       proxy: {
@@ -74,31 +109,5 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
-    plugins: [
-      vue(),
-      AutoImport({
-        imports: [
-          'vue',
-          'vue-router',
-          '@vueuse/core',
-          'vue/macros',
-          customImports,
-        ],
-        resolvers: [
-          ElementPlusResolver(),
-          ElementProResolver,
-          ElementIconResolver,
-        ],
-        eslintrc: { enabled: true },
-      }),
-      Components({
-        resolvers: [
-          ElementPlusResolver(),
-          ElementProResolver,
-          ElementIconResolver,
-        ],
-      }),
-      Unocss(),
-    ],
   }
 })

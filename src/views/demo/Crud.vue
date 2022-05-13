@@ -1,6 +1,6 @@
 <template>
-  <pro-card shadow="never">
-    <pro-crud
+  <ProCard shadow="never">
+    <ProCrud
       v-model="form"
       v-model:search="query"
       v-model:current-page="page"
@@ -24,34 +24,34 @@
       @search-reset="loadList"
     >
       <template #table-tag="{ row, size }">
-        <el-tag
+        <ElTag
           v-for="(item, index) in row.tag"
           :key="index"
           :size="size"
           class="tag-item"
         >
           {{ item }}
-        </el-tag>
+        </ElTag>
       </template>
       <template #detail-tag="{ item, size }">
-        <el-tag
+        <ElTag
           v-for="(v, i) in item.tag"
           :key="i"
           :size="size"
           class="tag-item"
         >
           {{ v }}
-        </el-tag>
+        </ElTag>
       </template>
-    </pro-crud>
-  </pro-card>
+    </ProCrud>
+  </ProCard>
 </template>
 
 <script setup lang="ts">
-import { useCrud } from '../../composables/index'
-import { Api } from '../../utils/index'
+import { useCrud } from '@/composables/index'
+import { Api } from '@/utils/index'
 import RichEditorVue from '../../components/RichEditor.vue'
-import type { ArticleItem, ArticleForm, ArticleQuery } from '../../types/index'
+import type { ArticleItem, ArticleForm, ArticleQuery } from '@/types/index'
 
 const {
   query,

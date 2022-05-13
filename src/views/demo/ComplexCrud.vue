@@ -1,6 +1,6 @@
 <template>
-  <pro-card shadow="never">
-    <pro-crud
+  <ProCard shadow="never">
+    <ProCrud
       v-model:search="query"
       v-model:current-page="page"
       v-model:page-size="limit"
@@ -18,58 +18,42 @@
       @search-reset="loadList"
     >
       <template #menu-right="{ size }">
-        <el-button
-          :size="size"
-          type="primary"
-          @click="toForm()"
-        >
+        <ElButton :size="size" type="primary" @click="toForm()">
           增加
-        </el-button>
+        </ElButton>
       </template>
       <template #action>
-        <el-button
+        <ElButton
           :icon="Refresh"
           circle
           style="margin-right: 8px"
           @click="loadList"
         />
-        <pro-column-setting v-model="columns" />
+        <ProColumn-setting v-model="columns" />
       </template>
       <template #menu="{ row, size }">
-        <el-button
-          :size="size"
-          type="text"
-          @click="toForm(row.id)"
-        >
-          编辑
-        </el-button>
-        <el-button
-          :size="size"
-          type="text"
-          @click="deleteRow(row)"
-        >
-          删除
-        </el-button>
+        <ElButton :size="size" text @click="toForm(row.id)"> 编辑 </ElButton>
+        <ElButton :size="size" text @click="deleteRow(row)"> 删除 </ElButton>
       </template>
       <template #table-tags="{ row, size }">
-        <el-tag
+        <ElTag
           v-for="(item, index) in row.tags"
           :key="index"
           :size="size"
           class="tag-item"
         >
           {{ item }}
-        </el-tag>
+        </ElTag>
       </template>
-    </pro-crud>
-  </pro-card>
+    </ProCrud>
+  </ProCard>
 </template>
 
 <script setup lang="ts">
 import { Refresh } from '@element-plus/icons-vue'
-import { useCrud, useCatesList } from '../../composables/index'
-import { Api } from '../../utils/index'
-import type { GoodsItem, GoodsForm, GoodsQuery } from '../../types/index'
+import { useCrud, useCatesList } from '@/composables/index'
+import { Api } from '@/utils/index'
+import type { GoodsItem, GoodsForm, GoodsQuery } from '@/types/index'
 
 const {
   query,

@@ -1,6 +1,6 @@
 <template>
-  <pro-card shadow="never">
-    <pro-form
+  <ProCard shadow="never">
+    <ProForm
       v-model="form"
       v-loading="isFetching"
       :columns="columns"
@@ -8,13 +8,13 @@
       label-width="100px"
       @submit="submit"
     />
-  </pro-card>
+  </ProCard>
 </template>
 
 <script setup lang="ts">
-import { useForm, useDetail, useCatesList } from '../../composables/index'
-import { Api } from '../../utils/index'
-import type { GoodsForm } from '../../types/index'
+import { useForm, useDetail, useCatesList } from '@/composables/index'
+import { Api } from '@/utils/index'
+import type { GoodsForm } from '@/types/index'
 
 const route = useRoute()
 const { form, submit } = useForm<GoodsForm>({ url: Api.goods, transform })
@@ -30,7 +30,7 @@ const columns = ref(
     {
       label: '基础信息',
       prop: 'id',
-      class: 'form-title', // 为当前项增加类名
+      class: 'form-title h-10', // 为当前项增加类名
     },
     {
       label: '商品名称',

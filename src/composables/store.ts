@@ -1,4 +1,4 @@
-import { GlobalStorageKey } from '../utils/index'
+import { GlobalStorageKey } from '@/utils/index'
 import type { ResLogin } from '../types/index'
 
 /** 存储全局响应变量 */

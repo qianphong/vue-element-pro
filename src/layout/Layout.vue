@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { useGlobalState } from '../composables/index'
+import { useGlobalState } from '@/composables/index'
 
 const route = useRoute()
 const router = useRouter()

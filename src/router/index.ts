@@ -1,17 +1,18 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import { useGlobalState } from '../composables/index'
-import { AllowList } from '../utils/index'
+import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+import { useGlobalState } from '@/composables/index'
+import { AllowList } from '@/utils/index'
+import BasicLayout from '@/layout/Layout.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/login',
-    component: () => import('../layout/Login.vue'),
+    component: () => import('@/layout/Login.vue'),
     meta: { hidden: true },
   },
   {
     path: '/',
     redirect: '/demo',
-    component: () => import('../layout/Layout.vue'),
+    component: BasicLayout,
     meta: { title: 'Demo', icon: markRaw(IconHouse) },
     children: [
       {
@@ -53,6 +54,19 @@ const routes: RouteRecordRaw[] = [
         path: '/demo/complex-crud',
         component: () => import('../views/demo/ComplexCrud.vue'),
         meta: { title: '复杂Crud' },
+      },
+    ],
+  },
+  {
+    path: '/feat',
+    redirect: '/feat/unocss',
+    component: BasicLayout,
+    meta: { title: 'Feat', icon: markRaw(IconHouse) },
+    children: [
+      {
+        path: 'unocss',
+        component: () => import('../views/feat/unocss/index.vue'),
+        meta: { title: 'Unocss' },
       },
     ],
   },

@@ -1,29 +1,29 @@
 <template>
-  <pro-card shadow="never">
-    <pro-descriptions
+  <ProCard shadow="never">
+    <ProDescriptions
       v-loading="isFetching"
       :columns="columns"
       :detail="detail || {}"
       :column="2"
     >
       <template #tag="{ item, size }">
-        <el-tag
+        <ElTag
           v-for="(e, i) in item.tag"
           :key="i"
           :size="size"
           class="tag-item"
         >
           {{ e }}
-        </el-tag>
+        </ElTag>
       </template>
-    </pro-descriptions>
-  </pro-card>
+    </ProDescriptions>
+  </ProCard>
 </template>
 
 <script setup lang="ts">
-import { useDetail } from '../../composables/index'
-import { Api } from '../../utils/index'
-import type { ArticleItem } from '../../types/index'
+import { useDetail } from '@/composables/index'
+import { Api } from '@/utils/index'
+import type { ArticleItem } from '@/types/index'
 
 const { isFetching, detailId, detail } = useDetail<ArticleItem>({
   url: Api.article,
