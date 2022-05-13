@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Unocss from 'unocss/vite'
 
 const customImports = {
   'element-pro-components': [
@@ -76,7 +77,13 @@ export default defineConfig(({ mode }) => {
     plugins: [
       vue(),
       AutoImport({
-        imports: ['vue', 'vue-router', '@vueuse/core', customImports],
+        imports: [
+          'vue',
+          'vue-router',
+          '@vueuse/core',
+          'vue/macros',
+          customImports,
+        ],
         resolvers: [
           ElementPlusResolver(),
           ElementProResolver,
@@ -91,6 +98,7 @@ export default defineConfig(({ mode }) => {
           ElementIconResolver,
         ],
       }),
+      Unocss(),
     ],
   }
 })
